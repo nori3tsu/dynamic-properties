@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class DynamicPropertiesLoader {
-    public static final String LOCATION_SEPARATOR = ",";
-    public static final String CLASSPATH_URL_PREFIX = "classpath:";
+	public static final String LOCATION_SEPARATOR = ",";
+	public static final String CLASSPATH_URL_PREFIX = "classpath:";
 
-    PropertiesLoader[] loaders;
+	PropertiesLoader[] loaders;
 
 	long reloadInterval;
 
@@ -15,7 +15,8 @@ public class DynamicPropertiesLoader {
 
 	long lastLoaded;
 
-	DynamicPropertiesLoader(ClassLoader classLoader, String locations, long checkInterval) {
+	DynamicPropertiesLoader(ClassLoader classLoader, String locations,
+			long checkInterval) {
 		this.reloadInterval = checkInterval;
 		if (locations == null || locations.equals("")) {
 			throw new IllegalArgumentException();

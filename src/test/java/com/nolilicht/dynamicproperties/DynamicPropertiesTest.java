@@ -10,8 +10,8 @@ import java.util.Properties;
 import org.junit.Test;
 
 public class DynamicPropertiesTest {
-    private static final String CLASSPATH_URL_PREFIX = "classpath:";
-    private static final File CLASSPATH_DIR;
+	private static final String CLASSPATH_URL_PREFIX = "classpath:";
+	private static final File CLASSPATH_DIR;
 	private static final String CURRENT_PACKAGE_CLASSPATH = DynamicPropertiesTest.class.getPackage().getName().replace(".", "/");
 
 	private static final String PROPERTEIS1_CLASSPATH = CURRENT_PACKAGE_CLASSPATH + "/" + "test-dynamic.properties1";

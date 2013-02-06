@@ -7,7 +7,7 @@ import java.util.Properties;
 public class DynamicProperties extends Properties {
 	private static final long serialVersionUID = -6404550854352698622L;
 
-    private DynamicPropertiesLoader dynamicPropertiesLoader;
+	private DynamicPropertiesLoader dynamicPropertiesLoader;
 
 	private ClassLoader classLoader;
 
@@ -15,23 +15,27 @@ public class DynamicProperties extends Properties {
 
 	private long reloadInterval;
 
-    public DynamicProperties(String locations) throws IOException {
-    	this(Thread.currentThread().getContextClassLoader(), locations, 0);
-    }
+	public DynamicProperties(String locations) throws IOException {
+		this(Thread.currentThread().getContextClassLoader(), locations, 0);
+	}
 
-    public DynamicProperties(String locations, long reloadInterval) throws IOException {
-    	this(Thread.currentThread().getContextClassLoader(), locations, reloadInterval);
-    }
+	public DynamicProperties(String locations, long reloadInterval)
+			throws IOException {
+		this(Thread.currentThread().getContextClassLoader(), locations,
+				reloadInterval);
+	}
 
-    public DynamicProperties(ClassLoader classLoader, String locations, long reloadInterval) throws IOException {
-    	this.locations = locations;
-    	this.classLoader = classLoader;
-    	this.reloadInterval = reloadInterval;
+	public DynamicProperties(ClassLoader classLoader, String locations,
+			long reloadInterval) throws IOException {
+		this.locations = locations;
+		this.classLoader = classLoader;
+		this.reloadInterval = reloadInterval;
 
-    	this.dynamicPropertiesLoader = new DynamicPropertiesLoader(classLoader, locations, reloadInterval);
+		this.dynamicPropertiesLoader = new DynamicPropertiesLoader(classLoader,
+				locations, reloadInterval);
 
-    	dynamicPropertiesLoader.load(this, System.currentTimeMillis());
-    }
+		dynamicPropertiesLoader.load(this, System.currentTimeMillis());
+	}
 
 	@Override
 	public synchronized Object get(Object key) {
