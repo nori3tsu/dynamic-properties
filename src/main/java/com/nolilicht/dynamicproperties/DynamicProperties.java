@@ -34,7 +34,7 @@ public class DynamicProperties extends Properties {
 		this.dynamicPropertiesLoader = new DynamicPropertiesLoader(classLoader,
 				locations, reloadInterval);
 
-		dynamicPropertiesLoader.load(this, System.currentTimeMillis());
+		dynamicPropertiesLoader.load(this);
 	}
 
 	@Override

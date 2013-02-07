@@ -9,7 +9,7 @@ public abstract class PropertiesLoader {
 
 	protected String location;
 
-	public abstract Properties load() throws IOException ;
+	abstract Properties load() throws IOException ;
 
 	protected Properties load(InputStream inStream) throws IOException {
 		try {

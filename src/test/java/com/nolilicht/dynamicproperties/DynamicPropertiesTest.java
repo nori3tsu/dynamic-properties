@@ -107,4 +107,9 @@ public class DynamicPropertiesTest {
 		// 異なるクラスローダーであるためファイルが読み込めない
 		new DynamicProperties(dummyClassLoader, CLASSPATH_URL_PREFIX + PROPERTEIS1_CLASSPATH, 0);
 	}
+
+	@Test
+	public void threadSafe() throws Exception {
+
+	}
 }

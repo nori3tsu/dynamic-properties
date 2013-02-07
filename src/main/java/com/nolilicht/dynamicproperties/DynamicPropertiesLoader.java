@@ -7,13 +7,13 @@ public class DynamicPropertiesLoader {
 	public static final String LOCATION_SEPARATOR = ",";
 	public static final String CLASSPATH_URL_PREFIX = "classpath:";
 
-	PropertiesLoader[] loaders;
+	private final PropertiesLoader[] loaders;
 
-	long reloadInterval;
+	private final long reloadInterval;
 
-	boolean alwaysLoading;
+	private final boolean alwaysLoading;
 
-	long lastLoaded;
+	private long lastLoaded;
 
 	DynamicPropertiesLoader(ClassLoader classLoader, String locations,
 			long checkInterval) {
@@ -44,14 +44,12 @@ public class DynamicPropertiesLoader {
 			}
 		}
 
-		if (this.reloadInterval <= 0) {
-			this.alwaysLoading = true;
-		}
+		this.alwaysLoading = (this.reloadInterval <= 0);
 
 		this.lastLoaded = 0;
 	}
 
-	synchronized void load(Properties props, long now) throws IOException {
+	void load(Properties props) throws IOException {
 		props.clear();
 
 		for (PropertiesLoader loader : this.loaders) {
@@ -60,7 +58,7 @@ public class DynamicPropertiesLoader {
 			props.putAll(loadedProps);
 		}
 
-		this.lastLoaded = now;
+		setLastLoaded(System.currentTimeMillis());
 	}
 
 	void reload(Properties props) throws IOException {
@@ -69,6 +67,10 @@ public class DynamicPropertiesLoader {
 			return;
 		}
 
-		load(props, now);
+		load(props);
+	}
+
+	private synchronized void setLastLoaded(long lastLoaded) {
+		this.lastLoaded = lastLoaded;
 	}
 }
