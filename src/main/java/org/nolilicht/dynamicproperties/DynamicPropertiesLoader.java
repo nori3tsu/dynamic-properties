@@ -1,4 +1,4 @@
-package com.nolilicht.dynamicproperties;
+package org.nolilicht.dynamicproperties;
 
 import java.io.IOException;
 import java.util.Properties;

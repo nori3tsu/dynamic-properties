@@ -1,13 +1,13 @@
-package com.nolilicht.dynamicproperties.spring;
+package org.nolilicht.dynamicproperties.spring;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.nolilicht.dynamicproperties.DummyClassLoader;
+import org.nolilicht.dynamicproperties.DynamicProperties;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
-import com.nolilicht.dynamicproperties.DummyClassLoader;
-import com.nolilicht.dynamicproperties.DynamicProperties;
 
 @ContextConfiguration(locations = {"/test-application-context.xml"})
 public class DynamicPropertiesFactoryTest extends AbstractJUnit4SpringContextTests {

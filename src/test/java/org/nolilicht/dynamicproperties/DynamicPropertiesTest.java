@@ -1,4 +1,4 @@
-package com.nolilicht.dynamicproperties;
+package org.nolilicht.dynamicproperties;
 
 import static org.junit.Assert.*;
 
@@ -8,6 +8,8 @@ import java.io.OutputStream;
 import java.util.Properties;
 
 import org.junit.Test;
+import org.nolilicht.dynamicproperties.ClassPathFileNotFoundException;
+import org.nolilicht.dynamicproperties.DynamicProperties;
 
 public class DynamicPropertiesTest {
 	private static final String CLASSPATH_URL_PREFIX = "classpath:";

@@ -1,4 +1,4 @@
-package com.nolilicht.dynamicproperties;
+package org.nolilicht.dynamicproperties;
 
 public class DummyClassLoader extends ClassLoader {
 	public DummyClassLoader() {

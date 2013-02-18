@@ -1,14 +1,14 @@
-package com.nolilicht.dynamicproperties.spring;
+package org.nolilicht.dynamicproperties.spring;
 
 import java.util.Iterator;
 import java.util.List;
 
+import org.nolilicht.dynamicproperties.DynamicProperties;
+import org.nolilicht.dynamicproperties.DynamicPropertiesLoader;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
 
-import com.nolilicht.dynamicproperties.DynamicProperties;
-import com.nolilicht.dynamicproperties.DynamicPropertiesLoader;
 
 public class DynamicPropertiesFactory implements InitializingBean, FactoryBean {
 	private DynamicProperties properties;
