@@ -8,8 +8,6 @@ import java.io.OutputStream;
 import java.util.Properties;
 
 import org.junit.Test;
-import org.nolilicht.dynamicproperties.ClassPathFileNotFoundException;
-import org.nolilicht.dynamicproperties.DynamicProperties;
 
 public class DynamicPropertiesTest {
 	private static final String CLASSPATH_URL_PREFIX = "classpath:";
@@ -111,7 +109,13 @@ public class DynamicPropertiesTest {
 	}
 
 	@Test
-	public void threadSafe() throws Exception {
+	public void clear() throws Exception {
+		Properties props = new DynamicProperties(CLASSPATH_URL_PREFIX + PROPERTEIS1_CLASSPATH);
 
+		assertTrue(props.size() > 0);
+
+		props.clear();
+
+		assertTrue(props.size() == 0);
 	}
 }

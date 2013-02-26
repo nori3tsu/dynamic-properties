@@ -49,17 +49,6 @@ public class DynamicProperties extends Properties {
 	}
 
 	@Override
-	public synchronized int size() {
-		try {
-			dynamicPropertiesLoader.reload(this);
-		} catch (IOException e) {
-			throw new IllegalStateException(e.getMessage(), e);
-		}
-
-		return super.size();
-	}
-
-	@Override
 	public synchronized boolean isEmpty() {
 		try {
 			dynamicPropertiesLoader.reload(this);
