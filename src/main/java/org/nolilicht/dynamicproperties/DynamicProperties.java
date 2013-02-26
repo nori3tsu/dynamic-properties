@@ -49,6 +49,19 @@ public class DynamicProperties extends Properties {
 	}
 
 	@Override
+	public String getProperty(String key) {
+		/*
+		 * java.util.Propertiesクラスではjava.util.Hashtableのgetを呼び出しているため
+		 * 自身のget(key)を呼び出すように修正。
+		 */
+		// Object oval = super.get(key);
+		Object oval = this.get(key);
+		String sval = (oval instanceof String) ? (String) oval : null;
+		return ((sval == null) && (defaults != null)) ? defaults
+				.getProperty(key) : sval;
+	}
+
+	@Override
 	public synchronized boolean isEmpty() {
 		try {
 			dynamicPropertiesLoader.reload(this);
