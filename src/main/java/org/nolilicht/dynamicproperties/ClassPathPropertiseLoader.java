@@ -14,11 +14,19 @@ public class ClassPathPropertiseLoader extends PropertiesLoader {
 
 	@Override
 	Properties load() throws IOException {
-		InputStream inStream = this.classLoader.getResourceAsStream(location);
-		if (inStream == null) {
-			throw new ClassPathFileNotFoundException(location);
-		}
+		InputStream inStream = null;
 
-		return load(inStream);
+		try {
+			inStream = this.classLoader.getResourceAsStream(location);
+			if (inStream == null) {
+				throw new ClassPathFileNotFoundException(location);
+			}
+
+			return load(inStream);
+		} finally {
+			if (inStream != null) {
+				inStream.close();
+			}
+		}
 	}
 }

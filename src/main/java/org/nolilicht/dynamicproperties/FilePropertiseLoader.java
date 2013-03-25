@@ -12,7 +12,15 @@ public class FilePropertiseLoader extends PropertiesLoader {
 
 	@Override
 	Properties load() throws IOException {
-		InputStream inStream = new FileInputStream(location);
-		return load(inStream);
+		InputStream inStream = null;
+
+		try {
+			inStream = new FileInputStream(location);
+			return load(inStream);
+		} finally {
+			if (inStream != null) {
+				inStream.close();
+			}
+		}
 	}
 }
